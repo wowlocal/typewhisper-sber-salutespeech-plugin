@@ -10,6 +10,7 @@ External TypeWhisper transcription engine plugin for the Sber SaluteSpeech REST 
 - Longer recordings use async upload/task/download recognition.
 - Audio is sent as 16 kHz mono `PCM_S16LE`.
 - Credentials are stored by TypeWhisper in the plugin-scoped Keychain.
+- Local recognition usage tracking with an editable SaluteSpeech Studio balance estimate.
 
 ## Credentials
 
@@ -20,6 +21,10 @@ Base64(Client ID:Client Secret)
 ```
 
 Paste that value into the plugin settings. Do not prefix it with `Basic`; the plugin adds that header value when requesting OAuth tokens.
+
+## Usage Estimate
+
+SaluteSpeech does not expose a public remaining-minutes API. The plugin tracks successful recognition duration locally and lets you enter the current remaining recognition minutes from SaluteSpeech Studio. After that correction, the settings UI shows an estimated remaining balance by subtracting local usage from the entered Studio value.
 
 ## Install For Development
 
